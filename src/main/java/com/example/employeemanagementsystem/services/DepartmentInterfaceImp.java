@@ -1,9 +1,10 @@
 package com.example.employeemanagementsystem.services;
 
 import com.example.employeemanagementsystem.entities.Department;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class DepartmentInterfaceImp implements DepartmentInterface{
     @Override
     public Department createDepartment(Department department) {
