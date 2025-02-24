@@ -5,10 +5,12 @@ import com.example.employeemanagementsystem.entities.Department;
 import java.util.List;
 
 public interface DepartmentInterface {
-    Department createDepartment(Department department);
+    Department createDepartment (Department department);
     List<Department> getAllDepartments();
     Department getDepartmentById(Long id);
-    Department updateDepartment(Long id, Department departmentDetails);
+
+    Department getDepartementByName(String departmentName);
+    Department updateDepartment( Department departmentDetails);
     void deleteDepartment(Long id);
 
 }

@@ -21,7 +21,9 @@ public class StaffMember implements Serializable {
 
     private String firstName ;
 
-    private String LastName ;
+    private String lastName ;
+
+    private String phoneNumber;
 
 @Email(message = "Invalid email format ")
     private String email ;

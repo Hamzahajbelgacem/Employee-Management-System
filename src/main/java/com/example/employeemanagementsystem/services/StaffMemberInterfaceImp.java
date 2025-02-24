@@ -2,10 +2,12 @@ package com.example.employeemanagementsystem.services;
 
 import com.example.employeemanagementsystem.entities.StaffMember;
 import com.example.employeemanagementsystem.repositories.StaffMemberRepository;
+import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
+@AllArgsConstructor
 public class StaffMemberInterfaceImp implements StaffMemberInterface{
 
      StaffMemberRepository staffMemberRepository;
@@ -13,6 +15,7 @@ public class StaffMemberInterfaceImp implements StaffMemberInterface{
 
     @Override
     public StaffMember addStaffMember(StaffMember staffMember) {
+
         return staffMemberRepository.save(staffMember);
     }
 
