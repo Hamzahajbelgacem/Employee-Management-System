@@ -2,20 +2,27 @@ package com.example.employeemanagementsystem.services;
 
 import com.example.employeemanagementsystem.entities.Department;
 import com.example.employeemanagementsystem.repositories.DepartmentRepository;
-import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
- @AllArgsConstructor
+
+@Getter
+@Setter
 public class DepartmentInterfaceImp implements DepartmentInterface{
 
-   private  DepartmentRepository departmentRepository;
+   private final DepartmentRepository departmentRepository;
+
+    public DepartmentInterfaceImp(DepartmentRepository departmentRepository) {
+        this.departmentRepository = departmentRepository;
+    }
 
 
     @Override
     public Department createDepartment(Department department) {
-        System.out.println("Saving department: " + department.getDepartmentName());
+        System.out.println("Saving department: " + department .getDepartmentName());
         Department savedDepartment = departmentRepository.save(department);
         System.out.println("Department saved with ID: " + savedDepartment.getDepartmentId());
         return savedDepartment;

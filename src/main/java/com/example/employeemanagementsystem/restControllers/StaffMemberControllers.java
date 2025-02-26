@@ -2,25 +2,28 @@ package com.example.employeemanagementsystem.restControllers;
 
 import com.example.employeemanagementsystem.entities.StaffMember;
 import com.example.employeemanagementsystem.services.StaffMemberInterface;
-import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/staffMembers")
-@AllArgsConstructor
-public class StaffMemberControllers {
-    private StaffMemberInterface staffMemberInterface ;
 
-@PostMapping("/add")
-    public StaffMember addMember(StaffMember staffMember){
+public class StaffMemberControllers {
+    private final StaffMemberInterface staffMemberInterface ;
+
+    public StaffMemberControllers(StaffMemberInterface staffMemberInterface) {
+        this.staffMemberInterface = staffMemberInterface;
+    }
+
+    @PostMapping("/add")
+    public StaffMember addMember(@RequestBody StaffMember staffMember){
         return staffMemberInterface.addStaffMember(staffMember);
     }
 
 @GetMapping("/getAll")
   public List<StaffMember> gettAllMember(){
-    return staffMemberInterface.getAllMemmbers();
+    return staffMemberInterface.getAllMembers();
   }
   @GetMapping("/getById/{id}")
     public StaffMember getMemberById(@PathVariable long id){
@@ -28,12 +31,12 @@ public class StaffMemberControllers {
   }
 
   @PutMapping("/update/")
-    public StaffMember updateMember(StaffMember staffMember){
+    public StaffMember updateMember(@RequestBody StaffMember staffMember){
     return staffMemberInterface.updateStaffMember(staffMember);
   }
 
   @DeleteMapping("/delete/{id}")
-    void deleteMember(Long id){
+    void deleteMember(@PathVariable Long id){
     staffMemberInterface.deleteStaffMember(id);
   }
 

@@ -32,6 +32,11 @@ public class DepartmentControllers {
         return departmentInterface.getDepartmentById(id);
     }
 
+    @GetMapping("/getByName")
+    public Department getDepartementByName( String departmentName){
+        return departmentInterface.getDepartementByName(departmentName);
+    }
+
     @PutMapping("/update")
     public Department updateDepartment(@RequestBody Department department){
         return departmentInterface.updateDepartment(department);

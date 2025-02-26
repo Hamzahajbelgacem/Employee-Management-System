@@ -7,7 +7,7 @@ import java.util.List;
 public interface StaffMemberInterface {
     public StaffMember addStaffMember (StaffMember staffMember);
 
-    public List<StaffMember> getAllMemmbers ();
+    public List<StaffMember> getAllMembers ();
 
     public StaffMember getStaffMemberById(Long id);
 
